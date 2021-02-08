@@ -6,7 +6,7 @@
         v-bind="attrs"
         v-on="on"
       )
-        VIcon(v-if="authenticated") mdi-account
+        VIcon(v-if="$user.authenticated") mdi-account
         VIcon(v-else) mdi-account-off
 
     VAccountMenu(v-on:close-dialog="dialog = false")

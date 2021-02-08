@@ -10,6 +10,10 @@ Vue.set(user, 'alias', null)
 Vue.set(user, 'authenticated', false)
 Vue.set(user, 'errors', {})
 
+// TODO: onAuth callback
+// dispatch('graph/init', null, { root: true })
+// dispatch('local/sync', null, { root: true })
+
 user.signUp = function (alias, pass) {
   gun.get('~@' + alias).once((data) => {
     if (!data) {

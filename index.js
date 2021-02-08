@@ -14,6 +14,8 @@ import {
   VSignupForm
 } from './components'
 
+export { gun, db, user, userDb }
+
 export default {
   install: function (Vue) {
     Vue.component('VConfirmBtn', VConfirmBtn)
