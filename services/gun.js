@@ -17,9 +17,7 @@ const scope = process.env.VUE_APP_NAMESPACE || 'dev.helvellyn.gun'
 
 const gun = Gun({ peers, localStorage: false })
 
-const user = gun.user()
-
-user.recall({ sessionStorage: true }, function () {
+const user = gun.user().recall({ sessionStorage: true }, function () {
   store.afterAuth()
 })
 

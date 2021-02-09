@@ -27,18 +27,15 @@ store.signUp = function (alias, pass) {
 store.login = function (alias, pass) {
   user.auth(alias, pass, (ack) => {
     if (!ack.err) {
-      this.afterAuth()
+      this.afterAuth(ack)
     } else {
       this.addError('username', ack.err)
     }
   })
 }
 
-// TODO: onAuth callback
-// dispatch('graph/init', null, { root: true })
-// dispatch('local/sync', null, { root: true })
-store.afterAuth = function () {
-  gun.get(user._.soul).once((user) => {
+store.afterAuth = function (ack) {
+  gun.get(ack.soul).once((user) => {
     Vue.set(this, 'alias', user.alias)
     Vue.set(this, 'authenticated', true)
   })
