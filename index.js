@@ -28,7 +28,7 @@ export default {
     Vue.component('VLoginForm', VLoginForm)
     Vue.component('VSignupForm', VSignupForm)
 
-    user.onAuth = options.onAuth
+    user.onAuth = options.onAuth || user.onAuth
 
     Vue.prototype.$gun = gun
     Vue.prototype.$db = db
