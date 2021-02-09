@@ -1,6 +1,4 @@
-import user from './user'
-
-import { scope } from './gun'
+import { scope, user } from './gun'
 
 const userDb = user.get(scope)
 

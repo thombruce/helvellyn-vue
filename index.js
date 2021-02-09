@@ -1,7 +1,8 @@
 import gun from './services/gun'
 import db from './services/db'
-import user from './services/user'
 import userDb from './services/userDb'
+
+import user from './services/store/user'
 
 import {
   VConfirmBtn,
