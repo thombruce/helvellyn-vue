@@ -5,7 +5,8 @@ import { gun, user } from '../gun'
 const store = Vue.observable({
   alias: null,
   authenticated: false,
-  errors: {}
+  errors: {},
+  onAuth: () => {}
 })
 
 store.signUp = function (alias, pass) {
@@ -38,6 +39,7 @@ store.afterAuth = function (ack) {
   gun.get(ack.soul).once((user) => {
     Vue.set(this, 'alias', user.alias)
     Vue.set(this, 'authenticated', true)
+    this.onAuth()
   })
 }
 
